@@ -45,6 +45,8 @@ namespace M
     public class GameManager : MonoBehaviour
     {
         public static GameManager Instance;
+        
+        public static GameObject objectNFT;
 
         //Smart Contract Data
         public const string ContractAddress = "0xd9145CCE52D386f254917e481eB44e9943F39138";
@@ -466,8 +468,8 @@ namespace M
             //IMPORTANT: We create a query to get ALL the EnemyData objects. We will use this query in multiple methods.
             //_allEnemiesQuery = Moralis.GetClient().Query<EnemyData>();
             
-            _allEnemiesQuery =  Moralis.GetClient().Query<EnemyData>();
-                //Query<EnemyData>();
+            //_allEnemiesQuery =  Moralis.GetClient().Query<EnemyData>(); 
+           
                 
 
             //We add a SUBSCRIPTION to that query so we get callback when something happens (object created, deleted, etc.).
@@ -574,7 +576,7 @@ namespace M
             
             //We want to query just one specific object.
             
-            MoralisQuery<EnemyData> query = Moralis.GetClient().Query<EnemyData>().Equals("objectId", objectId);
+            //MoralisQuery<EnemyData> query = Moralis.GetClient().Query<EnemyData>().Equals("objectId", objectId);
             
             
             //WhereEqualTo("objectId", objectId); MoralisLiveQueryClient MoralisLiveQueryCallbacks<>
@@ -588,25 +590,28 @@ namespace M
 
 
 
-            IEnumerable<EnemyData> enemiesToDelete = await query.FindAsync(); //We will just find one because "objectId" is unique.
+            //IEnumerable<EnemyData> enemiesToDelete = await query.FindAsync(); //We will just find one because "objectId" is unique.
             
-            var enemiesToDeleteList = enemiesToDelete.ToList();
-            if (enemiesToDeleteList.Any())
-            {
+            
+            //var enemiesToDeleteList = enemiesToDelete.ToList();
+            //if (enemiesToDeleteList.Any())
+            //{
                 //If there are some, we delete them.
-                foreach (var enemy in enemiesToDeleteList)
-                {
-                    await enemy.DeleteAsync();
+            //    foreach (var enemy in enemiesToDeleteList)
+            //   {
+            //       await enemy.DeleteAsync();
                     
                     //The LiveQuery subscription will take care of that. Go check the events on "OnEnable()".
-                }
-            }
-            else
-            {
-                Debug.Log("There ara no EnemyData objects in the DB to delete.");
-            }
+            //  }
+            //}
+            //else
+            //{
+            //    Debug.Log("There ara no EnemyData objects in the DB to delete.");
+            //}
         }
 
+            
+            
         private IEnumerator QuitGame()
         {
             if (_currentAliveEnemiesCount > 0)
@@ -629,4 +634,5 @@ namespace M
         #endregion
 
     }
+    
 }
