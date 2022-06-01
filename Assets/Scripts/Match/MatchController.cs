@@ -11,7 +11,7 @@ using Button = UnityEngine.UI.Button;
 using Random = System.Random;
 
 
-namespace Main
+namespace M
 {
 public enum ElementType
 {
@@ -75,7 +75,7 @@ public class MatchController : MonoBehaviour
     //generate new tokenID
     //public static GameObject objectNFT;
     //activate claimNFT object
-    private static GameManager gameManager;
+    //private static GameManager gameManager;
     
 
 
@@ -95,7 +95,7 @@ public class MatchController : MonoBehaviour
             hexagramCounter = 10;
             var position = terrainPosition.transform.position;
             terrainParent.GetComponent<Animator>().SetTrigger(Levitate);
-            gameManager.objectNFT = (hexagramNumberArray[0], hexagramNumberArray[1], hexagramNumberArray[2]) switch
+            GameManager.Instance.objectNFT = (hexagramNumberArray[0], hexagramNumberArray[1], hexagramNumberArray[2]) switch
             {
                 (0, 0, 0) => Instantiate(terrain[0].gameObject, position, Quaternion.identity,
                     terrainParent.transform),
@@ -113,7 +113,7 @@ public class MatchController : MonoBehaviour
                     terrainParent.transform),
                 (1, 1, 1) => Instantiate(terrain[7].gameObject, position, Quaternion.identity,
                     terrainParent.transform),
-                _ => gameManager.objectNFT
+                _ => GameManager.Instance.objectNFT
             };
 
             //hexagramParts[HexagramCounter - 1].transform.parent.GetComponent<Animator>().SetTrigger(HolderSpin);

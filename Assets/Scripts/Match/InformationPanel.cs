@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Main
+namespace M
 {
     public class InformationPanel : MonoBehaviour
     {

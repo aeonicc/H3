@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-namespace Main
+namespace M
 {
     public class WarningsPannel : MonoBehaviour
     {

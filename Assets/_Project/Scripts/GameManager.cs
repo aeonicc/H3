@@ -46,7 +46,7 @@ namespace M
     {
         public static GameManager Instance;
         
-        public static GameObject objectNFT;
+        public GameObject objectNFT;
 
         //Smart Contract Data
         public const string ContractAddress = "0xd9145CCE52D386f254917e481eB44e9943F39138";
