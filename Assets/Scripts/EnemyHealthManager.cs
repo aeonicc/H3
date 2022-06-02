@@ -2,41 +2,44 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyHealthManager : MonoBehaviour
+namespace Robb
 {
-    public int maxHealth = 1;
-    private int currentHealth;
-
-    public int deathSound;
-
-    public GameObject deathEffect, itemToDrop;
-
-    // Start is called before the first frame update
-    void Start()
+    public class EnemyHealthManager : MonoBehaviour
     {
-        currentHealth = maxHealth;
-    }
+        public int maxHealth = 1;
+        private int currentHealth;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+        public int deathSound;
 
-    public void TakeDamage()
-    {
-        currentHealth--;
+        public GameObject deathEffect, itemToDrop;
 
-        if(currentHealth <= 0)
+        // Start is called before the first frame update
+        void Start()
         {
-            AudioManager.instance.PlaySFX(deathSound);
+            currentHealth = maxHealth;
+        }
 
-            Destroy(gameObject);
+        // Update is called once per frame
+        void Update()
+        {
 
-            PlayerController.instance.Bounce();
+        }
 
-            Instantiate(deathEffect, transform.position + new Vector3(0, 1.2f, 0f), transform.rotation);
-            Instantiate(itemToDrop, transform.position + new Vector3(0, .5f, 0f), transform.rotation);
+        public void TakeDamage()
+        {
+            currentHealth--;
+
+            if (currentHealth <= 0)
+            {
+                AudioManager.instance.PlaySFX(deathSound);
+
+                Destroy(gameObject);
+
+                PlayerController.instance.Bounce();
+
+                Instantiate(deathEffect, transform.position + new Vector3(0, 1.2f, 0f), transform.rotation);
+                Instantiate(itemToDrop, transform.position + new Vector3(0, .5f, 0f), transform.rotation);
+            }
         }
     }
 }

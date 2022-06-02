@@ -2,25 +2,28 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BossDamagePoint : MonoBehaviour
+namespace Robb
 {
-    // Start is called before the first frame update
-    void Start()
+    public class BossDamagePoint : MonoBehaviour
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if(other.tag == "Player")
+        // Start is called before the first frame update
+        void Start()
         {
-            BossController.instance.DamageBoss();
+
+        }
+
+        // Update is called once per frame
+        void Update()
+        {
+
+        }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.tag == "Player")
+            {
+                BossController.instance.DamageBoss();
+            }
         }
     }
 }

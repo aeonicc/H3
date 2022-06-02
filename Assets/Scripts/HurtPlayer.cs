@@ -2,25 +2,29 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HurtPlayer : MonoBehaviour
+namespace Robb
 {
-    // Start is called before the first frame update
-    void Start()
+    public class HurtPlayer : MonoBehaviour
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if(other.tag == "Player")
+        // Start is called before the first frame update
+        void Start()
         {
-            HealthManager.instance.Hurt();
+
+        }
+
+        // Update is called once per frame
+        void Update()
+        {
+
+        }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.tag == "Player")
+            {
+                HealthManager.instance.Hurt();
+            }
         }
     }
+
 }

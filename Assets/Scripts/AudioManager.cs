@@ -3,64 +3,67 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 
-public class AudioManager : MonoBehaviour
+namespace Robb
 {
-    public static AudioManager instance;
-
-    public AudioSource[] music;
-    public AudioSource[] sfx;
-
-    public int levelMusicToPlay;
-
-    public AudioMixerGroup musicMixer, sfxMixer;
-
-    //private int currentTrack;
-
-    private void Awake()
+    public class AudioManager : MonoBehaviour
     {
-        instance = this;
-    }
+        public static AudioManager instance;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        PlayMusic(levelMusicToPlay);
-    }
+        public AudioSource[] music;
+        public AudioSource[] sfx;
 
-    // Update is called once per frame
-    void Update()
-    {
-        /* if(Input.GetKeyDown(KeyCode.M))
+        public int levelMusicToPlay;
+
+        public AudioMixerGroup musicMixer, sfxMixer;
+
+        //private int currentTrack;
+
+        private void Awake()
         {
-            //currentTrack++;
-            //PlayMusic(currentTrack);
-
-            PlaySFX(5);
-        } */
-    }
-
-    public void PlayMusic(int musicToPlay)
-    {
-        for(int i = 0; i < music.Length; i++)
-        {
-            music[i].Stop();
+            instance = this;
         }
 
-        music[musicToPlay].Play();
-    }
+        // Start is called before the first frame update
+        void Start()
+        {
+            PlayMusic(levelMusicToPlay);
+        }
 
-    public void PlaySFX(int sfxToPlay)
-    {
-        sfx[sfxToPlay].Play();
-    }
+        // Update is called once per frame
+        void Update()
+        {
+            /* if(Input.GetKeyDown(KeyCode.M))
+            {
+                //currentTrack++;
+                //PlayMusic(currentTrack);
+    
+                PlaySFX(5);
+            } */
+        }
 
-    public void SetMusicLevel()
-    {
-        musicMixer.audioMixer.SetFloat("MusicVol", UIManager.instance.musicVolSlider.value);
-    }
+        public void PlayMusic(int musicToPlay)
+        {
+            for (int i = 0; i < music.Length; i++)
+            {
+                music[i].Stop();
+            }
 
-    public void SetSFXLevel()
-    {
-        sfxMixer.audioMixer.SetFloat("SfxVol", UIManager.instance.sfxVolSlider.value);
+            music[musicToPlay].Play();
+        }
+
+        public void PlaySFX(int sfxToPlay)
+        {
+            sfx[sfxToPlay].Play();
+        }
+
+        public void SetMusicLevel()
+        {
+            musicMixer.audioMixer.SetFloat("MusicVol", UIManager.instance.musicVolSlider.value);
+        }
+
+        public void SetSFXLevel()
+        {
+            sfxMixer.audioMixer.SetFloat("SfxVol", UIManager.instance.sfxVolSlider.value);
+        }
     }
 }

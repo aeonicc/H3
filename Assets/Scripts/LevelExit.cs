@@ -2,29 +2,33 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LevelExit : MonoBehaviour
+namespace Robb
 {
-    public Animator anim;
-
-    // Start is called before the first frame update
-    void Start()
+    public class LevelExit : MonoBehaviour
     {
-        
-    }
+        public Animator anim;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if(other.tag == "Player")
+        // Start is called before the first frame update
+        void Start()
         {
-            anim.SetTrigger("Hit");
 
-            StartCoroutine(GameManager.instance.LevelEndCo());
+        }
+
+        // Update is called once per frame
+        void Update()
+        {
+
+        }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.tag == "Player")
+            {
+                anim.SetTrigger("Hit");
+
+                StartCoroutine(GameManager.instance.LevelEndCo());
+            }
         }
     }
+
 }

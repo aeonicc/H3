@@ -2,6 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
+using Unity.VisualScripting;
+
+namespace Robb
+{
+    
 
 public class CameraController : MonoBehaviour
 {
@@ -24,4 +29,5 @@ public class CameraController : MonoBehaviour
     {
         
     }
+}
 }

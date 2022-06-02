@@ -2,99 +2,110 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BossController : MonoBehaviour
+namespace Robb
 {
-    public static BossController instance;
-
-    public Animator anim;
-
-    public GameObject victoryZone;
-    public float waitToShowExit;
-
-    public enum BossPhase { intro, phase1, phase2, phase3, end};
-    public BossPhase currentPhase = BossPhase.intro;
-
-    public int bossMusic, bossDeath, bossDeathShout, bossHit;
-
-    private void Awake()
+    public class BossController : MonoBehaviour
     {
-        instance = this;
-    }
+        public static BossController instance;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        //AudioManager.instance.PlayMusic(bossMusic);
-    }
+        public Animator anim;
 
-    private void OnEnable()
-    {
-        AudioManager.instance.PlayMusic(bossMusic);
-    }
+        public GameObject victoryZone;
+        public float waitToShowExit;
 
-    // Update is called once per frame
-    void Update()
-    {
-        if(GameManager.instance.isRespawning)
+        public enum BossPhase
         {
-            currentPhase = BossPhase.intro;
+            intro,
+            phase1,
+            phase2,
+            phase3,
+            end
+        };
 
-            anim.SetBool("Phase1", false);
-            anim.SetBool("Phase2", false);
-            anim.SetBool("Phase3", false);
+        public BossPhase currentPhase = BossPhase.intro;
 
-            AudioManager.instance.PlayMusic(AudioManager.instance.levelMusicToPlay);
+        public int bossMusic, bossDeath, bossDeathShout, bossHit;
 
-            gameObject.SetActive(false);
-
-            BossActivator.instance.gameObject.SetActive(true);
-            BossActivator.instance.entrance.SetActive(true);
-
-            GameManager.instance.isRespawning = false;
-
-        }
-    }
-
-    public void DamageBoss()
-    {
-        AudioManager.instance.PlaySFX(bossHit);
-
-        currentPhase++;
-
-        if (currentPhase != BossPhase.end)
+        private void Awake()
         {
-            anim.SetTrigger("Hurt");
+            instance = this;
         }
 
-        switch (currentPhase)
+        // Start is called before the first frame update
+        void Start()
         {
-            case BossPhase.phase1:
-                anim.SetBool("Phase1", true);
-                break;
+            //AudioManager.instance.PlayMusic(bossMusic);
+        }
 
-            case BossPhase.phase2:
-                anim.SetBool("Phase2", true);
+        private void OnEnable()
+        {
+            AudioManager.instance.PlayMusic(bossMusic);
+        }
+
+        // Update is called once per frame
+        void Update()
+        {
+            if (GameManager.instance.isRespawning)
+            {
+                currentPhase = BossPhase.intro;
+
                 anim.SetBool("Phase1", false);
-                break;
-
-            case BossPhase.phase3:
-                anim.SetBool("Phase3", true);
                 anim.SetBool("Phase2", false);
-                break;
+                anim.SetBool("Phase3", false);
 
-            case BossPhase.end:
-                anim.SetTrigger("End");
-                StartCoroutine(EndBoss());
-                break;
+                AudioManager.instance.PlayMusic(AudioManager.instance.levelMusicToPlay);
+
+                gameObject.SetActive(false);
+
+                BossActivator.instance.gameObject.SetActive(true);
+                BossActivator.instance.entrance.SetActive(true);
+
+                GameManager.instance.isRespawning = false;
+
+            }
         }
-    }
 
-    IEnumerator EndBoss()
-    {
-        AudioManager.instance.PlaySFX(bossDeath);
-        AudioManager.instance.PlaySFX(bossDeathShout);
-        AudioManager.instance.PlayMusic(AudioManager.instance.levelMusicToPlay);
-        yield return new WaitForSeconds(waitToShowExit);
-        victoryZone.SetActive(true);
+        public void DamageBoss()
+        {
+            AudioManager.instance.PlaySFX(bossHit);
+
+            currentPhase++;
+
+            if (currentPhase != BossPhase.end)
+            {
+                anim.SetTrigger("Hurt");
+            }
+
+            switch (currentPhase)
+            {
+                case BossPhase.phase1:
+                    anim.SetBool("Phase1", true);
+                    break;
+
+                case BossPhase.phase2:
+                    anim.SetBool("Phase2", true);
+                    anim.SetBool("Phase1", false);
+                    break;
+
+                case BossPhase.phase3:
+                    anim.SetBool("Phase3", true);
+                    anim.SetBool("Phase2", false);
+                    break;
+
+                case BossPhase.end:
+                    anim.SetTrigger("End");
+                    StartCoroutine(EndBoss());
+                    break;
+            }
+        }
+
+        IEnumerator EndBoss()
+        {
+            AudioManager.instance.PlaySFX(bossDeath);
+            AudioManager.instance.PlaySFX(bossDeathShout);
+            AudioManager.instance.PlayMusic(AudioManager.instance.levelMusicToPlay);
+            yield return new WaitForSeconds(waitToShowExit);
+            victoryZone.SetActive(true);
+        }
     }
 }

@@ -4,94 +4,99 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class UIManager : MonoBehaviour
+namespace Robb
 {
-    public static UIManager instance;
-
-    public Image blackScreen;
-    public float fadeSpeed = 2f;
-    public bool fadeToBlack, fadeFromBlack;
-
-    public Text healthText;
-    public Image healthImage;
-
-    public Text coinText;
-
-    public GameObject pauseScreen, optionsScreen;
-
-    public Slider musicVolSlider, sfxVolSlider;
-
-    public string levelSelect, mainMenu;
-
-    private void Awake()
+    public class UIManager : MonoBehaviour
     {
-        instance = this;
-    }
+        public static UIManager instance;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+        public Image blackScreen;
+        public float fadeSpeed = 2f;
+        public bool fadeToBlack, fadeFromBlack;
 
-    // Update is called once per frame
-    void Update()
-    {
-        if(fadeToBlack)
+        public Text healthText;
+        public Image healthImage;
+
+        public Text coinText;
+
+        public GameObject pauseScreen, optionsScreen;
+
+        public Slider musicVolSlider, sfxVolSlider;
+
+        public string levelSelect, mainMenu;
+
+        private void Awake()
         {
-            blackScreen.color = new Color(blackScreen.color.r, blackScreen.color.g, blackScreen.color.b, Mathf.MoveTowards(blackScreen.color.a, 1f, fadeSpeed * Time.deltaTime));
+            instance = this;
+        }
 
-            if(blackScreen.color.a == 1f)
+        // Start is called before the first frame update
+        void Start()
+        {
+
+        }
+
+        // Update is called once per frame
+        void Update()
+        {
+            if (fadeToBlack)
             {
-                fadeToBlack = false;
+                blackScreen.color = new Color(blackScreen.color.r, blackScreen.color.g, blackScreen.color.b,
+                    Mathf.MoveTowards(blackScreen.color.a, 1f, fadeSpeed * Time.deltaTime));
+
+                if (blackScreen.color.a == 1f)
+                {
+                    fadeToBlack = false;
+                }
+            }
+
+            if (fadeFromBlack)
+            {
+                blackScreen.color = new Color(blackScreen.color.r, blackScreen.color.g, blackScreen.color.b,
+                    Mathf.MoveTowards(blackScreen.color.a, 0f, fadeSpeed * Time.deltaTime));
+
+                if (blackScreen.color.a == 0f)
+                {
+                    fadeFromBlack = false;
+                }
             }
         }
 
-        if (fadeFromBlack)
+        public void Resume()
         {
-            blackScreen.color = new Color(blackScreen.color.r, blackScreen.color.g, blackScreen.color.b, Mathf.MoveTowards(blackScreen.color.a, 0f, fadeSpeed * Time.deltaTime));
-
-            if (blackScreen.color.a == 0f)
-            {
-                fadeFromBlack = false;
-            }
+            GameManager.instance.PauseUnpause();
         }
-    }
 
-    public void Resume()
-    {
-        GameManager.instance.PauseUnpause();
-    }
+        public void OpenOptions()
+        {
+            optionsScreen.SetActive(true);
+        }
 
-    public void OpenOptions()
-    {
-        optionsScreen.SetActive(true);
-    }
+        public void CloseOptions()
+        {
+            optionsScreen.SetActive(false);
+        }
 
-    public void CloseOptions()
-    {
-        optionsScreen.SetActive(false);
-    }
+        public void LevelSelect()
+        {
+            SceneManager.LoadScene(levelSelect);
+            Time.timeScale = 1f;
+        }
 
-    public void LevelSelect()
-    {
-        SceneManager.LoadScene(levelSelect);
-        Time.timeScale = 1f;
-    }
+        public void MainMenu()
+        {
+            SceneManager.LoadScene(mainMenu);
+            Time.timeScale = 1;
+        }
 
-    public void MainMenu()
-    {
-        SceneManager.LoadScene(mainMenu);
-        Time.timeScale = 1;
-    }
+        public void SetMusicLevel()
+        {
+            AudioManager.instance.SetMusicLevel();
+        }
 
-    public void SetMusicLevel()
-    {
-        AudioManager.instance.SetMusicLevel();
-    }
-
-    public void SetSFXLevel()
-    {
-        AudioManager.instance.SetSFXLevel();
+        public void SetSFXLevel()
+        {
+            AudioManager.instance.SetSFXLevel();
+        }
     }
 }

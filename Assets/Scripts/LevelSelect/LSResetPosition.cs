@@ -2,36 +2,39 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LSResetPosition : MonoBehaviour
+namespace Robb
 {
-    public static LSResetPosition instance;
-
-    public Vector3 respawnPosition;
-
-    private void Awake()
+    public class LSResetPosition : MonoBehaviour
     {
-        instance = this;
-    }
+        public static LSResetPosition instance;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+        public Vector3 respawnPosition;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if(other.tag == "Player")
+        private void Awake()
         {
-            PlayerController.instance.gameObject.SetActive(false);
-            PlayerController.instance.transform.position = respawnPosition;
-            PlayerController.instance.gameObject.SetActive(true);
+            instance = this;
+        }
+
+        // Start is called before the first frame update
+        void Start()
+        {
+
+        }
+
+        // Update is called once per frame
+        void Update()
+        {
+
+        }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.tag == "Player")
+            {
+                PlayerController.instance.gameObject.SetActive(false);
+                PlayerController.instance.transform.position = respawnPosition;
+                PlayerController.instance.gameObject.SetActive(true);
+            }
         }
     }
 }

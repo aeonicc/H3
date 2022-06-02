@@ -2,36 +2,39 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BossActivator : MonoBehaviour
+namespace Robb
 {
-    public static BossActivator instance;
-
-    public GameObject entrance, theBoss;
-
-    private void Awake()
+    public class BossActivator : MonoBehaviour
     {
-        instance = this;
-    }
+        public static BossActivator instance;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+        public GameObject entrance, theBoss;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.tag == "Player")
+        private void Awake()
         {
-            entrance.SetActive(false);
-            theBoss.SetActive(true);
-            gameObject.SetActive(false);
+            instance = this;
+        }
+
+        // Start is called before the first frame update
+        void Start()
+        {
+
+        }
+
+        // Update is called once per frame
+        void Update()
+        {
+
+        }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.tag == "Player")
+            {
+                entrance.SetActive(false);
+                theBoss.SetActive(true);
+                gameObject.SetActive(false);
+            }
         }
     }
 }

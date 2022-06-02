@@ -2,50 +2,55 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ButtonController : MonoBehaviour
+namespace Robb
 {
-    public bool isPressed;
-    public Transform button, buttonDown;
-    private Vector3 buttonUp;
-
-    public bool isOnOff;
-
-    // Start is called before the first frame update
-    void Start()
+    public class ButtonController : MonoBehaviour
     {
-        buttonUp = button.position;
-    }
+        public bool isPressed;
+        public Transform button, buttonDown;
+        private Vector3 buttonUp;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+        public bool isOnOff;
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if(other.tag == "Player")
+        // Start is called before the first frame update
+        void Start()
         {
-            if (isOnOff)
+            buttonUp = button.position;
+        }
+
+        // Update is called once per frame
+        void Update()
+        {
+
+        }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.tag == "Player")
             {
-                if (isPressed)
+                if (isOnOff)
                 {
-                    button.position = buttonUp;
-                    isPressed = false;
+                    if (isPressed)
+                    {
+                        button.position = buttonUp;
+                        isPressed = false;
+                    }
+                    else
+                    {
+                        button.position = buttonDown.position;
+                        isPressed = true;
+                    }
                 }
                 else
                 {
-                    button.position = buttonDown.position;
-                    isPressed = true;
-                }
-            } else
-            {
-                if(!isPressed)
-                {
-                    button.position = buttonDown.position;
-                    isPressed = true;
+                    if (!isPressed)
+                    {
+                        button.position = buttonDown.position;
+                        isPressed = true;
+                    }
                 }
             }
         }
     }
+
 }

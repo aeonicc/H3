@@ -2,20 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LSCamera : MonoBehaviour
+namespace Robb
 {
-    public Transform target;
-    private Vector3 offset;
-
-    // Start is called before the first frame update
-    void Awake()
+    public class LSCamera : MonoBehaviour
     {
-        offset = transform.position - target.position;
-    }
+        public Transform target;
+        private Vector3 offset;
 
-    // Update is called once per frame
-    void Update()
-    {
-        transform.position = target.position + offset;
+        // Start is called before the first frame update
+        void Awake()
+        {
+            offset = transform.position - target.position;
+        }
+
+        // Update is called once per frame
+        void Update()
+        {
+            transform.position = target.position + offset;
+        }
     }
 }

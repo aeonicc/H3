@@ -2,35 +2,38 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CoinPickup : MonoBehaviour
+namespace Robb
 {
-    public int value;
-
-    public GameObject pickupEffect;
-
-    public int soundToPlay;
-
-    // Start is called before the first frame update
-    void Start()
+    public class CoinPickup : MonoBehaviour
     {
-        
-    }
+        public int value;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+        public GameObject pickupEffect;
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if(other.tag == "Player")
+        public int soundToPlay;
+
+        // Start is called before the first frame update
+        void Start()
         {
-            GameManager.instance.AddCoins(value);
 
-            Destroy(gameObject);
-            Instantiate(pickupEffect, transform.position, transform.rotation);
-            AudioManager.instance.PlaySFX(soundToPlay);
+        }
+
+        // Update is called once per frame
+        void Update()
+        {
+
+        }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.tag == "Player")
+            {
+                GameManager.instance.AddCoins(value);
+
+                Destroy(gameObject);
+                Instantiate(pickupEffect, transform.position, transform.rotation);
+                AudioManager.instance.PlaySFX(soundToPlay);
+            }
         }
     }
 }

@@ -3,30 +3,32 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-
-public class LSUIManager : MonoBehaviour
+namespace Robb
 {
-    public static LSUIManager instance;
-
-    public Text lNameText;
-    public GameObject lNamePanel;
-
-    public Text coinsText;
-
-    private void Awake()
+    public class LSUIManager : MonoBehaviour
     {
-        instance = this;
-    }
+        public static LSUIManager instance;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+        public Text lNameText;
+        public GameObject lNamePanel;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public Text coinsText;
+
+        private void Awake()
+        {
+            instance = this;
+        }
+
+        // Start is called before the first frame update
+        void Start()
+        {
+
+        }
+
+        // Update is called once per frame
+        void Update()
+        {
+
+        }
     }
 }

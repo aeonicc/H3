@@ -2,43 +2,46 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Checkpoint : MonoBehaviour
+namespace Robb
 {
-    public GameObject cpOn, cpOff;
-
-    //public Checkpoint[] cps;
-
-    public int soundToPlay;
-
-    // Start is called before the first frame update
-    void Start()
+    public class Checkpoint : MonoBehaviour
     {
-        
-    }
+        public GameObject cpOn, cpOff;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+        //public Checkpoint[] cps;
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if(other.tag == "Player")
+        public int soundToPlay;
+
+        // Start is called before the first frame update
+        void Start()
         {
-            GameManager.instance.SetSpawnPoint(transform.position);
 
-            Checkpoint[] allCP = FindObjectsOfType<Checkpoint>();
-            for(int i = 0; i < allCP.Length; i++)
+        }
+
+        // Update is called once per frame
+        void Update()
+        {
+
+        }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.tag == "Player")
             {
-                allCP[i].cpOff.SetActive(true);
-                allCP[i].cpOn.SetActive(false);
+                GameManager.instance.SetSpawnPoint(transform.position);
+
+                Checkpoint[] allCP = FindObjectsOfType<Checkpoint>();
+                for (int i = 0; i < allCP.Length; i++)
+                {
+                    allCP[i].cpOff.SetActive(true);
+                    allCP[i].cpOn.SetActive(false);
+                }
+
+                cpOff.SetActive(false);
+                cpOn.SetActive(true);
+
+                AudioManager.instance.PlaySFX(soundToPlay);
             }
-
-            cpOff.SetActive(false);
-            cpOn.SetActive(true);
-
-            AudioManager.instance.PlaySFX(soundToPlay);
         }
     }
 }

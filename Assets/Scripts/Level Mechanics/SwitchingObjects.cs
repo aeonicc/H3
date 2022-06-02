@@ -2,29 +2,33 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SwitchingObjects : MonoBehaviour
+namespace Robb
 {
-    public GameObject theObject;
-
-    public ButtonController theButton;
-
-    public bool revealWhenPressed;
-
-    // Start is called before the first frame update
-    void Start()
+    public class SwitchingObjects : MonoBehaviour
     {
-        
-    }
+        public GameObject theObject;
 
-    // Update is called once per frame
-    void Update()
-    {
-        if(theButton.isPressed)
+        public ButtonController theButton;
+
+        public bool revealWhenPressed;
+
+        // Start is called before the first frame update
+        void Start()
         {
-            theObject.SetActive(revealWhenPressed);
-        } else
+
+        }
+
+        // Update is called once per frame
+        void Update()
         {
-            theObject.SetActive(!revealWhenPressed);
+            if (theButton.isPressed)
+            {
+                theObject.SetActive(revealWhenPressed);
+            }
+            else
+            {
+                theObject.SetActive(!revealWhenPressed);
+            }
         }
     }
 }
