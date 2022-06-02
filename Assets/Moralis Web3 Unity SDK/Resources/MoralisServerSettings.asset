@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: MoralisServerSettings
   m_EditorClassIdentifier: 
   DappUrl: https://hjeb0gpamjg8.usemoralis.com:2053/server
-  DappId: 'gXd4OLcKnFpy4y1kOlT44osan69Z8gbiLWW5paIu '
+  DappId: gXd4OLcKnFpy4y1kOlT44osan69Z8gbiLWW5paIu
   DappName: Moralis SDK Application
   DappDescription: This application provides an example of how to you Moralis in
     a Unity 3D Game

@@ -21530,7 +21530,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &3648076198782136768
 GameObject:
   m_ObjectHideFlags: 0
@@ -32653,7 +32653,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &5028004309508337317
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34455,7 +34455,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: WEB3 UNITY NFT SHOP
+  m_text: HEXLIBRIUM
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -36387,7 +36387,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5986777695083110587}
-  m_LocalRotation: {x: 0.056485035, y: -0.0000000038136636, z: 2.0667103e-10, w: 0.99840343}
+  m_LocalRotation: {x: 0.056485035, y: -0.0000000037617998, z: 2.0358842e-10, w: 0.99840343}
   m_LocalPosition: {x: -0.49, y: -196.23, z: -43}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -36602,7 +36602,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5986777695205120995}
-  m_LocalRotation: {x: 0.3232659, y: -0.00000007251095, z: 0.000000020618973, w: 0.9463082}
+  m_LocalRotation: {x: 0.3232659, y: -0.000000072850845, z: 0.000000020545254, w: 0.9463082}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -36634,7 +36634,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5986777695767598376}
-  m_LocalRotation: {x: 0.3060453, y: -0.000000071115274, z: 0.000000019719668, w: 0.95201695}
+  m_LocalRotation: {x: 0.3060453, y: -0.00000006657314, z: 0.000000020804677, w: 0.95201695}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -36943,7 +36943,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5986777696282577494}
-  m_LocalRotation: {x: 0.34042528, y: -0.000000092002956, z: 0.000000017947059, w: 0.9402716}
+  m_LocalRotation: {x: 0.3404253, y: -0.00000006885078, z: 0.000000022591951, w: 0.9402716}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -40826,29 +40826,17 @@ MonoBehaviour:
   chainId: 1
   ConnectedEvent:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8268624139068257953}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   ConnectedEventSession:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8268624139068257953}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: 8268624139068257954}
+        m_TargetAssemblyTypeName: M.MoralisStandaloneAuth, Assembly-CSharp
+        m_MethodName: OnWalletConnectEventHandler
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -40857,13 +40845,13 @@ MonoBehaviour:
   DisconnectedEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8268624139068257953}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: 8268624139068257954}
+        m_TargetAssemblyTypeName: M.MoralisStandaloneAuth, Assembly-CSharp
+        m_MethodName: OnDisconnectedEventHandler
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -40872,13 +40860,13 @@ MonoBehaviour:
   ConnectionFailedEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8268624139068257953}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: 8268624139068257954}
+        m_TargetAssemblyTypeName: M.MoralisStandaloneAuth, Assembly-CSharp
+        m_MethodName: OnConnectionFailedEventHandler
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -40887,13 +40875,13 @@ MonoBehaviour:
   NewSessionConnected:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8268624139068257953}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: 8268624139068257954}
+        m_TargetAssemblyTypeName: M.MoralisStandaloneAuth, Assembly-CSharp
+        m_MethodName: OnSessionConnectedHandler
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -40901,12 +40889,25 @@ MonoBehaviour:
         m_CallState: 2
   ResumedSessionConnected:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8268624139068257954}
+        m_TargetAssemblyTypeName: M.MoralisStandaloneAuth, Assembly-CSharp
+        m_MethodName: OnSessionConnectedHandler
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   AppData:
-    Description: 
-    URL: 
-    Icons: []
-    Name: 
+    Description: Connect
+    URL: https://moralis.io
+    Icons:
+    - https://moralis.io/wp-content/uploads/2021/06/Powered-by-Moralis-Badge-Black.svg
+    Name: Hex
 --- !u!114 &8268624139068257956
 MonoBehaviour:
   m_ObjectHideFlags: 0
